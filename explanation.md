@@ -1,5 +1,5 @@
 ### Inspecting and Cleaning the Raw Data
-I looked at hte data and made sure it was not broekn or had information that didn't make sense realistically. 
+I looked at the data and made sure it was not broken or had information that didn't make sense realistically. 
 
 #### A diamond is a 3-d solid physical object. The data has: $x Length in mm$, $y Width in mm$, $z Depth in mm$. 
 - A real diamond cannot  have length(x), width(y),or depth(z) that is 0 mm or negative. 
@@ -15,9 +15,9 @@ depth x (x + y) /(200) = z
 z  = depth x (x + y) / (200)
 
 In Python: 
-x --> df['x'] 
-y --> df['y']
-z --> df['z']
+$x --> df['x']$ 
+$y --> df['y']$
+$z --> df['z']$
 
 # From assignment1.ipynb:
 df = df[~((df['x'] == 0) & (df['y'] == 0))].copy()
