@@ -23,22 +23,22 @@ $x --> df['x']$ ,
 $y --> df['y']$ ,
 $z --> df['z']$ ,
 
-# From assignment1.ipynb:
+### From assignment1.ipynb:
 df = df[~((df['x'] == 0) & (df['y'] == 0))].copy()
 missing_z = (df['z'] == 0) & (df['x'] > 0) & (df['y'] > 0)
 df.loc[missing_z, 'z'] = df['depth'] * (df['x'] + df['y']) / 200
 depth --> df['depth'] 
 
-#However now having to look at it I could of :
-# Step 1: Drop rows where length (x) or width (y) is 0
-# Why: If both x and y are 0, we have no foundation to calculate z!
+However now having to look at it I could of :
+#Step 1: Drop rows where length (x) or width (y) is 0
+#Why: If both x and y are 0, we have no foundation to calculate z!
 df = df[df['x'] > 0]
 df = df[df['y'] > 0]
 
-# Step 2: Find rows where depth (z) is 0
+#Step 2: Find rows where depth (z) is 0
 missing_depth = (df['z'] == 0)
 
-# Step 3: Fill missing z using our rearranged math formula:
+#Step 3: Fill missing z using our rearranged math formula:
 # z = depth * (x + y) / 200
 df.loc[missing_depth, 'z'] = df['depth'] * (df['x'] + df['y']) / 200
 
@@ -101,16 +101,16 @@ One-Hot Encoding:
 Assign a 0,1  in a mathematical way to say yes or no. It will give each category its own seperate column containing a  1 (yes) or 0 (no).
 
 For example taking the feature $cut$, we would want $Ideal$ cut:
+
 Row    cut_Fair  cut_Good   cut_VeryGood  cut_Premium  cut_Ideal
 1       0         0              0       0             1
 
 In Python:
 from sklearn.preprocessing import OneHotEncoder
-
-# drop=None ensures every category (including 'Fair') gets its own explicit column
+#drop=None ensures every category (including 'Fair') gets its own explicit column
 ohe = OneHotEncoder(sparse_output=False, drop=None)
 
-# Fit on training data only
+#Fit on training data only
 X_train_ohe = ohe.fit_transform(X_train[["cut", "color", "clarity"]])
 X_test_ohe = ohe.transform(X_test[["cut", "color", "clarity"]])
 
