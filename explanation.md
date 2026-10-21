@@ -9,15 +9,19 @@ The rows that had $z=0$, meaning no depth were not removed entirely; A formula f
 evaluates a diamonds depth as a ratio relative to its average diameter.
 #### depth percentage = (z /(x+y/2) ) x 100
 Now solving for $z$:
+
 depth /100 = z (x + y/2)
+
 depth /100 x (x + y)/2)  = z 
+
 depth x (x + y) /(200) = z
+
 z  = depth x (x + y) / (200)
 
 In Python: 
-$x --> df['x']$ 
-$y --> df['y']$
-$z --> df['z']$
+$x --> df['x']$ ,
+$y --> df['y']$ ,
+$z --> df['z']$ ,
 
 # From assignment1.ipynb:
 df = df[~((df['x'] == 0) & (df['y'] == 0))].copy()
@@ -76,7 +80,9 @@ Ordinal Encoding:
 Because a "Premium" cut is strictly better than a "Fair" cut, so numerical values of hierarchy were assigned.
 Application to DatasetCut: 
 $\text{Fair} (0) < \text{Good} (1) < \text{Very Good} (2) < \text{Premium} (3) < \text{Ideal} (4)$   
+
 Color: $\text{J} (0) < \text{I} (1) < \text{H} (2) < \text{G} (3) < \text{F} (4) < \text{E} (5) < \text{D} (6)$   
+
 Clarity: $\text{I1} (0) < \text{SI2} (1) < \text{SI1} (2) < \text{VS2} (3) < \text{VS1} (4) < \text{VVS2} (5) < \text{VVS1} (6) < \text{IF} (7)$
 
 In Python:
